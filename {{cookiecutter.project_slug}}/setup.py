@@ -10,7 +10,7 @@ try:
 except:
     from ConfigParser import ConfigParser  # @UnresolvedImport @Reimport
 
-plugin_module = {{ cookiecutter.project_slug }}
+plugin_module = '{{ cookiecutter.project_slug }}'
 plugin_path = path.dirname(path.abspath(__file__))
 
 
