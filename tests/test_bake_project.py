@@ -8,6 +8,7 @@ import datetime
 from cookiecutter.utils import rmtree
 
 from click.testing import CliRunner
+from datetime import time
 
 if sys.version_info > (3, 0):
     import importlib
@@ -152,4 +153,5 @@ def test_bake_not_open_source(cookies):
         assert 'setup.cfg' in found_toplevel_files
         assert 'LICENSE' not in found_toplevel_files
         assert 'License' not in result.project.join('README.rst').read()
+    print('__(_)__')
 
