@@ -22,6 +22,9 @@
 
 {{ cookiecutter.project_short_description }}
 
+Require Kupfer_
+.. _Kupfer: http://engla.github.io/kupfer/
+
 {% if is_open_source %}
 * Free software: {{ cookiecutter.open_source_license }}
 {% endif %}
