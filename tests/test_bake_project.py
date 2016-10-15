@@ -156,4 +156,3 @@ def test_bake_not_open_source(cookies):
             assert 'License' not in result.project.join('README.rst').read()
     except OSError:
         pass
-
