@@ -2,15 +2,15 @@
 
 from distutils.core import setup
 setup(
-    name='cookiecutter-pypackage',
+    name='cookiecutter-kupfer-plugin',
     packages=[],
     version='0.1.0',
-    description='Cookiecutter template for a Python package',
-    author='Audrey Roy Greenfeld',
+    description='Cookiecutter template for a kupfer plugin',
+    author='Hugo Sena Ribeiro',
     license='BSD',
-    author_email='aroy@alum.mit.edu',
-    url='https://github.com/audreyr/cookiecutter-pypackage',
-    keywords=['cookiecutter', 'template', 'package', ],
+    author_email='hugosenari@gmail.com',
+    url='https://github.com/hugosenari/cookiecutter-kupfer-plugin-package',
+    keywords=['cookiecutter', 'template', 'package', 'kupfer'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
