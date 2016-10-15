@@ -24,7 +24,6 @@
 
 {% if is_open_source %}
 * Free software: {{ cookiecutter.open_source_license }}
-* Documentation: https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io.
 {% endif %}
 
 Features
@@ -32,11 +31,17 @@ Features
 
 * TODO
 
+Install
+-------
+
+pip install kupfer_plugin_{{ cookiecutter.project_name }}
+
+
 Credits
 ---------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with Cookiecutter_ and the `cookiecutter-kupfer-plugin-package`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _`cookiecutter-kupfer-plugin-package`: https://github.com/hugosenari/cookiecutter-kupfer-plugin-package
 

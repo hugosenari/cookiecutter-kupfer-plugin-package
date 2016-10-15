@@ -49,5 +49,6 @@ setup(
     cmdclass={'install': CopyPlugin},
     py_modules=[plugin_module],
     zip_safe=False,
+    version='{{ cookiecutter.version }}',
     **dict(convert(read_cfg()))
 )
