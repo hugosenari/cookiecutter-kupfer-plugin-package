@@ -34,7 +34,7 @@ Features
 Install
 -------
 
-pip install kupfer_plugin_{{ cookiecutter.project_name }}
+pip install kupfer_plugin_{{ cookiecutter.project_slug }}
 
 
 Credits
