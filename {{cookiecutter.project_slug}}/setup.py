@@ -1,75 +1,53 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from os import path
+from subprocess import call
 from setuptools import setup
+from setuptools.command.install import install
+try:
+    from configparser import ConfigParser  # @UnusedImport
+except:
+    from ConfigParser import ConfigParser  # @UnresolvedImport @Reimport
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
+plugin_module = {{ cookiecutter.project_slug }}
+plugin_path = path.dirname(path.abspath(__file__))
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
 
-requirements = [
-    {%- if cookiecutter.command_line_interface|lower == 'click' %}
-    'Click>=6.0',
-    {%- endif %}
-    # TODO: put package requirements here
-]
+class CopyPlugin(install):
 
-test_requirements = [
-    # TODO: put package test requirements here
-]
+    def run(self):
+        dirs = ["~", ".local", "share", "kupfer", "plugins"]
+        install_path = path.expanduser(path.join(*dirs))
+        print("mkdir {}".format(install_path))
+        call("mkdir -p {}".format(install_path), shell=True)
 
-{%- set license_classifiers = {
-    'MIT license': 'License :: OSI Approved :: MIT License',
-    'BSD license': 'License :: OSI Approved :: BSD License',
-    'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
-    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
-    'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
-} %}
+        plugin_file = path.join(plugin_path, plugin_module + '.py')
+        print("Copy {} to {}".format(plugin_file, install_path))
+        call("cp -p {} {}".format(plugin_file, install_path), shell=True)
+
+
+def read_cfg():
+    parser = ConfigParser()
+    parser.read(path.join(plugin_path, 'setup.cfg'))
+    for k, v in parser.items('metadata'):
+        yield k, v
+
+def convert(cfgs):
+    from_to = {
+        'summary': lambda k, v: ('description', v),
+        'home-page': lambda k, v: ('url', v),
+        'classifiers': lambda k, v: (k, v.splitlines()),
+        'description-file': lambda k, v: ('long_description', open(v).read())
+    }
+    std_m = lambda k, v: (k.replace('-', '_'), v)
+    for k, v in cfgs:
+        m = from_to.get(k, std_m)
+        yield m(k, v)
 
 setup(
-    name='{{ cookiecutter.project_slug }}',
-    version='{{ cookiecutter.version }}',
-    description="{{ cookiecutter.project_short_description }}",
-    long_description=readme + '\n\n' + history,
-    author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
-    author_email='{{ cookiecutter.email }}',
-    url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
-    packages=[
-        '{{ cookiecutter.project_slug }}',
-    ],
-    package_dir={'{{ cookiecutter.project_slug }}':
-                 '{{ cookiecutter.project_slug }}'},
-    {%- if 'no' not in cookiecutter.command_line_interface|lower %}
-    entry_points={
-        'console_scripts': [
-            '{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}.cli:main'
-        ]
-    },
-    {%- endif %}
-    include_package_data=True,
-    install_requires=requirements,
-{%- if cookiecutter.open_source_license in license_classifiers %}
-    license="{{ cookiecutter.open_source_license }}",
-{%- endif %}
+    cmdclass={'install': CopyPlugin},
+    py_modules=[plugin_module],
     zip_safe=False,
-    keywords='{{ cookiecutter.project_slug }}',
-    classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers',
-{%- if cookiecutter.open_source_license in license_classifiers %}
-        '{{ license_classifiers[cookiecutter.open_source_license] }}',
-{%- endif %}
-        'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-    ],
-    test_suite='tests',
-    tests_require=test_requirements
+    **dict(convert(read_cfg()))
 )
