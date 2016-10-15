@@ -2,7 +2,7 @@
   "full_name": "Hugo Sena Ribeiro",
   "email": "hugosenari@gmail.com",
   "github_username": "hugosenari",
-  "project_name": "Kupfer Plugin Boilerplate",
+  "project_name": "Boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "project_short_description": "Kupfer plugin Boilerplate contains all the boilerplate you need to create a kupfer plugin.",
   "pypi_username": "{{ cookiecutter.github_username }}",
