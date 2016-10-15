@@ -94,3 +94,6 @@ target/
 # Cookiecutter
 output/
 python_boilerplate/
+.project
+.pydevproject
+.settings
