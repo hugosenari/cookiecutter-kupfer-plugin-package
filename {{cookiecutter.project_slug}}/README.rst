@@ -38,7 +38,7 @@ pip install kupfer_plugin_{{ cookiecutter.project_slug }}
 
 
 Credits
----------
+-------
 
 This package was created with Cookiecutter_ and the `cookiecutter-kupfer-plugin-package`_ project template.
 
