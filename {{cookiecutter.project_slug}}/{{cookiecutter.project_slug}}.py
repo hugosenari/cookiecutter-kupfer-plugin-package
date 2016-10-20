@@ -69,7 +69,10 @@ __description__ = _("""
 #    def activate(self, obj):
 #        ''' '''
 #        #obj in most of case are a leaf
-#        
+#
+#    def valid_for_item(self, leaf):
+#        """Whether action can be used with exactly @item"""
+#        return bool(leaf)
 #
 #    #optional
 #    #return list of object that can be activated with this
