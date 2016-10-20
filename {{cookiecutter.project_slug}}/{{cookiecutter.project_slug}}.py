@@ -63,7 +63,7 @@ __description__ = _("""
 #actions are what your plugin can do with objects
 #ie: OpenFile, Delete, Edit, PlayNext...
 #from kupfer.objects import Action
-#class PluginActionName(action):
+#class PluginActionName(Action):
 #    #required
 #    #do here something with your object
 #    def activate(self, obj):
