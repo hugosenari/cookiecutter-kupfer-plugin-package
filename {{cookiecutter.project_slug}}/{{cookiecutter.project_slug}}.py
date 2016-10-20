@@ -65,6 +65,10 @@ __description__ = _("""
 #from kupfer.objects import Action
 #class PluginActionName(Action):
 #    #required
+#
+#    def __init__(self):
+#        super(self.__class__, self).__init__(self, name=_("Action Name"))
+#
 #    #do here something with your object
 #    def activate(self, obj):
 #        ''' '''
