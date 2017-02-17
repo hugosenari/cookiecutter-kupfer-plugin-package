@@ -1,25 +1,23 @@
 
-#read plugin api:
-# http://engla.github.io/kupfer/Documentation/PluginAPI.html
+## read plugin api:
+## https://kupferlauncher.github.io/Documentation/PluginAPI.html
 
-__kupfer_name__ = _("{{ cookiecutter.project_name }}")
-__version__ = "{{ cookiecutter.version }}"
-__author__ = "{{ cookiecutter.full_name.replace('\"', '\\\"') }} <{{ cookiecutter.email }}>"
-__description__ = _("""
-    {{ cookiecutter.project_short_description }}
-""")
+__kupfer_name__ = '{{ cookiecutter.project_name }}'
+__version__ = '{{ cookiecutter.version }}'
+__author__ = '{{ cookiecutter.full_name.replace("\'", "\\\'") }} <{{ cookiecutter.email }}>'
+__description__ = '''{{ cookiecutter.project_short_description }}'''
 
-#optional:
-# should be tuples of names of classes in the plugin
+## optional:
+## should be tuples of names of classes in the plugin
 #__kupfer_sources__ = ("YourPluginSource",)
 #__kupfer_actions__ = ("PluginActionName",)
-#other options:
+## other options:
 #__kupfer_text_sources__ = ("PLUGIN_TEXT_SOURCES",)
 #__kupfer_action_generators__ = ("PLUGIN_ACTION_GENERATORS",)
 #__kupfer_contents__ = ("PLUGIN_CONTENTS",)
 
-#if your plugin needs user settings
-#from kupfer.plugin_support import PluginSettings
+## if your plugin needs user settings
+## from kupfer.plugin_support import PluginSettings
 #__kupfer_settings__ = PluginSettings( 
 #    {
 #        "key" : "{{ cookiecutter.project_slug }}_KEY",
@@ -35,14 +33,14 @@ __description__ = _("""
 #        "alternatives": OTHER_SETTING_LIST_OF_ALTERNATIVES
 #    },
 #)
-#then you can get setting:
+## then you can get setting:
 #__kupfer_settings__["{{ cookiecutter.project_slug }}_KEY"]
 
 
-#PLUGINS LEAFS
-#leafs are plugin objects
-#ie: TextLeaf, FileLeaf, ContactLeaf, EmailLeaf, FolderLeaf, ApplicationLeaf...
-#from kupfer.objects import Leaf
+## PLUGINS LEAFS
+## leafs are plugin objects
+## ie: TextLeaf, FileLeaf, ContactLeaf, EmailLeaf, FolderLeaf, ApplicationLeaf...
+#from kupfer.objects import Leaf #, TextLeaf, FileLeaf, ContactLeaf, EmailLeaf, FolderLeaf, ApplicationLeaf
 #class YourPluginLeaf(Leaf):
 #    #required
 #    #init your leaf object
@@ -59,9 +57,9 @@ __description__ = _("""
 #        yield Plugin_Action_name
 
 
-#PLUGIN ACTIONS
-#actions are what your plugin can do with objects
-#ie: OpenFile, Delete, Edit, PlayNext...
+## PLUGIN ACTIONS
+## actions are what your plugin can do with objects
+## ie: OpenFile, Delete, Edit, PlayNext...
 #from kupfer.objects import Action
 #class PluginActionName(Action):
 #    #required
@@ -74,22 +72,22 @@ __description__ = _("""
 #        ''' '''
 #        #obj in most of case are a leaf
 #
+#    #optional
+#    #Whether action can be used with exactly @item
 #    def valid_for_item(self, leaf):
-#        """Whether action can be used with exactly @item"""
+#        ''' '''
 #        return bool(leaf)
 #
-#    #optional
 #    #return list of object that can be activated with this
 #    #reverse version of get_actions defined in leaf
 #    def item_types(self):
 #        ''' '''
 
 
-#PLUGIN_SOURCES
-#from kupfer.objects import Source
-#source are leaf factory
-#here is where kupfer will create your leafs
-#ie: TextsSource, FilesSource, ContactsSource, ApplicationsSource...
+## PLUGIN_SOURCES
+## source are leaf factory
+## here is where kupfer will create your leafs
+## ie: TextsSource, FilesSource, ContactsSource, ApplicationsSource...
 #from kupfer.objects import Source
 #class YourPluginSource(Source):
 #    #required
