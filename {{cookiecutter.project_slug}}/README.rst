@@ -19,7 +19,7 @@
 
 {{ cookiecutter.project_short_description }}
 
-Require Kupfer http://engla.github.io/kupfer/
+Require Kupfer https://github.com/kupferlauncher/kupfer/
 
 {% if is_open_source %}
 * Free software: {{ cookiecutter.open_source_license }}
