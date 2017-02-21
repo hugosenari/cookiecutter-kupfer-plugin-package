@@ -35,6 +35,7 @@ Install
 
 pip install kupfer_plugin_{{ cookiecutter.project_slug }}
 
+Or copy {{ cookiecutter.project_slug }}.py to ~/.local/share/kupfer/plugins/
 
 Credits
 -------
