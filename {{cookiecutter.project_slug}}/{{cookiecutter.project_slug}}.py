@@ -2,7 +2,7 @@
 ## read plugin api:
 ## https://kupferlauncher.github.io/Documentation/PluginAPI.html
 
-__kupfer_name__ = '{{ cookiecutter.project_name }}'
+__kupfer_name__ = _('{{ cookiecutter.project_name }}')
 __version__ = '{{ cookiecutter.version }}'
 __author__ = '{{ cookiecutter.full_name.replace("\'", "\\\'") }} <{{ cookiecutter.email }}>'
 __description__ = '''{{ cookiecutter.project_short_description }}'''
