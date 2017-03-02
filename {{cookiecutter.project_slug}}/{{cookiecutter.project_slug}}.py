@@ -46,7 +46,7 @@ __description__ = '''{{ cookiecutter.project_short_description }}'''
 #    #init your leaf object
 #    def __init__(self, obj):
 #        ''' '''
-#        super(self.__class__, self).__init__(obj, _("Plugin Leaf Name"))
+#        Leaf.__init__(self, obj, _("Plugin Leaf Name"))
 #        #do something else with object
 #        #you can get object anywhere in this class using self.object
 #
@@ -94,7 +94,7 @@ __description__ = '''{{ cookiecutter.project_short_description }}'''
 #    #init your source object
 #    def __init__(self):
 #        ''' '''
-#        super(self.__class__, self).__init__(_("Plugin Source Name"))
+#        Source.__init__(self, _("Plugin Source Name"))
 #        self.resource = None
 #    
 #    #return the list of leaf
