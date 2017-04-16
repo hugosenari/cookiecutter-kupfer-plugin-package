@@ -16,7 +16,7 @@ __description__ = '''{{ cookiecutter.project_short_description }}'''
 # __kupfer_contents__ = ("PLUGIN_CONTENTS",)
 #  
 # # # if your plugin needs user settings
-# # # from kupfer.plugin_support import PluginSettings
+# from kupfer.plugin_support import PluginSettings
 # __kupfer_settings__ = PluginSettings( 
 #     {
 #         "key" : "{{ cookiecutter.project_slug }}_KEY",
